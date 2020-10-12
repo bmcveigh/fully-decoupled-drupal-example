@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AppBar, Container, createStyles, CssBaseline, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 
-function App() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      marginTop: '80px',
+    },
+  }),
+);
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <CssBaseline />
+      <AppBar
+          position="fixed"
         >
-          Learn React
-        </a>
-      </header>
+        <Toolbar>
+          <Typography variant="h6" noWrap>
+            My Decoupled Drupal Site
+          </Typography>
+        </Toolbar>
+      </AppBar>
+        <Container>
+          <main className={classes.content}>
+            <Typography paragraph>Hello, world!</Typography>
+          </main>
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
