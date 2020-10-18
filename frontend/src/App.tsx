@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Container, createStyles, CssBaseline, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
+import Home from './pages/Home';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +33,7 @@ const App = () => {
       </AppBar>
         <Container>
           <main className={classes.content}>
-            <Typography paragraph>Hello, world!</Typography>
+            <Home />
           </main>
       </Container>
     </div>

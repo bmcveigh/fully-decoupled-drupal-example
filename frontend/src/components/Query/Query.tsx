@@ -1,10 +1,10 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from 'react-apollo';
 
 interface IQuery extends Readonly<any> {
   children: any;
   query: any;
-  id: any;
+  id?: any;
   variables?: any;
 }
 
