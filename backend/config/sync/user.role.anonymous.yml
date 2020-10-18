@@ -12,6 +12,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'bypass graphql field security'
   - 'execute graphql requests'
   - 'execute persisted graphql requests'
   - 'search content'
