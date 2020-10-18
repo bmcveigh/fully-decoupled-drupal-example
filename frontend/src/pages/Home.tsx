@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <Query query={ARTICLES_QUERY}>
       {(results: any): any => {
-        return (
-          <div>Test</div>
-        );
+        return results.data.nodeQuery.entities.map((node: any) => (
+          <div>{node.entityLabel}</div>
+        ));
       }}
     </Query>
   );
