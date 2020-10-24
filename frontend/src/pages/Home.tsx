@@ -8,9 +8,14 @@ const Home = () => {
     <Query query={ARTICLES_QUERY}>
       {(results: any): any => {
         return results.data.nodeQuery.entities.map((node: any) => (
-          <Typography key={node.entityLabel} variant="h3">
-            {node.entityLabel}
-          </Typography>
+          <div key={node.entityId}>
+            <Typography variant="h3">
+              {node.entityLabel}
+            </Typography>
+            <Typography variant="body1">
+              {node.body.value}
+            </Typography>
+          </div>
         ));
       }}
     </Query>

@@ -6,7 +6,12 @@ const ARTICLES_QUERY = gql`
     nodeQuery(limit: 10, offset: 0, filter: {conditions: [{operator: EQUAL, field: "type", value: ["article"]}]}) {
       entities {
         entityId,
-        entityLabel
+        entityLabel,
+        ...on NodeArticle {
+          body {
+            value
+          }
+        }
       }
     }
   }
