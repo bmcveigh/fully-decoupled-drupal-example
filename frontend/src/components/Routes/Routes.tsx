@@ -4,24 +4,12 @@ import {
   Route,
 } from 'react-router-dom'
 import Home from '../../pages/Home';
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import NodeViewArticlePage from '../../pages/NodeViewArticlePage';
-import RouterLink from './RouterLink';
 
 const Routes = () => {
   return (
     <>
-      <AppBar
-        position="fixed"
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            <RouterLink to="/">
-              My Decoupled Drupal Site
-            </RouterLink>
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Switch>
         <Route path="/node/:id">
           <NodeViewArticlePage />
