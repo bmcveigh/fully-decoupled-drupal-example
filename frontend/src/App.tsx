@@ -4,6 +4,7 @@ import Routes from './components/Routes/Routes'
 import { ApolloProvider } from 'react-apollo';
 
 import client from './utils/apolloClient';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,14 +24,16 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <ApolloProvider client={client}>
-      <CssBaseline />
+    <Router>
+      <ApolloProvider client={client}>
+        <CssBaseline />
         <Container>
           <main className={classes.content}>
             <Routes />
           </main>
-      </Container>
-    </ApolloProvider>
+        </Container>
+      </ApolloProvider>
+    </Router>
   );
 };
 

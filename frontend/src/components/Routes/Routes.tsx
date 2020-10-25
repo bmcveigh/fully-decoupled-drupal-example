@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom'
@@ -11,7 +10,7 @@ import RouterLink from './RouterLink';
 
 const Routes = () => {
   return (
-    <Router>
+    <>
       <AppBar
         position="fixed"
       >
@@ -34,7 +33,7 @@ const Routes = () => {
           <Home/>
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 };
 
