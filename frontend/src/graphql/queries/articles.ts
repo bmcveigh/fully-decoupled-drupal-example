@@ -9,7 +9,7 @@ const ARTICLES_QUERY = gql`
         entityLabel,
         ...on NodeArticle {
           body {
-            value
+            summary
           }
         }
       }
