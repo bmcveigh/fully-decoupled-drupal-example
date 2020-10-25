@@ -11,6 +11,7 @@ import {
   Theme,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
+import { ReactElement } from 'react'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +30,7 @@ const NodeArticleList = () => {
 
   return (
     <Query query={ARTICLES_QUERY}>
-      {(results: NodeArticlesQueryResponse): any => {
+      {(results: NodeArticlesQueryResponse): ReactElement => {
         return (
           <List className={classes.root}>
             {results.data.nodeQuery.entities.map((node: NodeArticleType) => (
