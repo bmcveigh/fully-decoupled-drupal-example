@@ -12,6 +12,8 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import { ReactElement } from 'react'
+import RouterLink from '../Routes/RouterLink'
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +39,7 @@ const NodeArticleList = () => {
               <React.Fragment key={node.entityId}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
-                    primary={<Typography variant="h4">{node.entityLabel}</Typography>}
+                    primary={<RouterLink to={`/node/${node.entityId}`}><Typography variant="h4">{node.entityLabel}</Typography></RouterLink>}
                     secondary={
                       node.body.summary ? (
                         <React.Fragment>

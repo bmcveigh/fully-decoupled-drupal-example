@@ -2,7 +2,8 @@ interface NodeArticleType {
   entityId: string | number;
   entityLabel: string;
   body: {
-    summary: string;
+    summary?: string;
+    value?: string;
   };
 }
 

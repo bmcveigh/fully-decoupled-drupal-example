@@ -1,6 +1,5 @@
 import React from 'react';
-import { AppBar, Container, createStyles, CssBaseline, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
-import Home from './pages/Home';
+import { Container, createStyles, CssBaseline, makeStyles, Theme } from '@material-ui/core';
 import Routes from './components/Routes/Routes'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,15 +22,6 @@ const App = () => {
   return (
     <div>
       <CssBaseline />
-      <AppBar
-          position="fixed"
-        >
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            My Decoupled Drupal Site
-          </Typography>
-        </Toolbar>
-      </AppBar>
         <Container>
           <main className={classes.content}>
             <Routes />
