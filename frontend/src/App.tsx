@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Container, createStyles, CssBaseline, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import Home from './pages/Home';
+import Routes from './components/Routes/Routes'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,7 +34,7 @@ const App = () => {
       </AppBar>
         <Container>
           <main className={classes.content}>
-            <Home />
+            <Routes />
           </main>
       </Container>
     </div>
