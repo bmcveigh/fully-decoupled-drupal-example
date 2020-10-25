@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
+import { Backdrop, CircularProgress } from '@material-ui/core'
 
 interface IQuery extends Readonly<any> {
   children: any;
@@ -20,7 +21,11 @@ const Query: ({ children, query, id, variables }: IQuery) => (any) = ({ children
     variables: variables
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (
+    <Backdrop open={true}>
+      <CircularProgress color="inherit" />
+    </Backdrop>
+  );
   if (error) return <p>Error: {JSON.stringify(error)}</p>;
   return children({ data });
 };
