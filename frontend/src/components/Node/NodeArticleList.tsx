@@ -8,7 +8,7 @@ import {
   Divider,
   List, ListItem,
   ListItemText,
-  Theme,
+  Theme, Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import { ReactElement } from 'react'
@@ -37,7 +37,7 @@ const NodeArticleList = () => {
               <React.Fragment key={node.entityId}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
-                    primary={node.entityLabel}
+                    primary={<Typography variant="h4">{node.entityLabel}</Typography>}
                     secondary={
                       node.body.summary ? (
                         <React.Fragment>
