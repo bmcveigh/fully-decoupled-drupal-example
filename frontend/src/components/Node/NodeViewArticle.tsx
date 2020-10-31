@@ -5,10 +5,11 @@ import NODE_ARTICLE_QUERY from '../../graphql/queries/nodeArticle';
 
 import {
   Typography,
-} from '@material-ui/core'
-import { ReactElement } from 'react'
+} from '@material-ui/core';
+import { ReactElement } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
-import NodeByIdQueryResponse from '../../types/NodeByIdQueryResponse'
+import NodeByIdQueryResponse from '../../types/NodeByIdQueryResponse';
+import Comments from '../Comment/Comments'
 
 const NodeViewArticle = (props: RouteComponentProps<any>) => {
   return (
@@ -23,6 +24,7 @@ const NodeViewArticle = (props: RouteComponentProps<any>) => {
               (<div
                 dangerouslySetInnerHTML={{ __html: results.data.nodeById.body.value }}/>)
               : null}
+            <Comments entities={results.data.commentQuery.entities} />
           </div>
         )
       }}

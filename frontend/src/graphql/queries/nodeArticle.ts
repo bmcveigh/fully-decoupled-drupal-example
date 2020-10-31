@@ -15,6 +15,12 @@ const NODE_ARTICLE_QUERY = gql`
           value
         }
       }
+    },
+    commentQuery(filter: {conditions: [{operator: EQUAL, field: "entity_id", value: [$id]}]}) {
+      entities {
+        entityId,
+        entityLabel
+      }
     }
   }
 `;
