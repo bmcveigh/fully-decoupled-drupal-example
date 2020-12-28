@@ -1,1 +1,10 @@
 version: "2.1"
+services:
+  frontend:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: cli
+    labels:
+      - io.docksal.virtual-host=nodeapp.${VIRTUAL_HOST}
+      - io.docksal.virtual-port=80
+    command: [ "bash", "-lc", "npm start -p 80" ]
