@@ -14,3 +14,14 @@ _Note: if restarting an already installed Drupal site, you can start the applica
 ```
 cd frontend && npm install && npm start
 ```
+
+## Technologies used
+
+### Backend
+* [Drupal 8](https://www.drupal.org)
+* [ContentaCMS](https://www.contentacms.org)
+
+### Frontend
+* [ReactJS](https://reactjs.org)
+* [MaterialUI](https://material-ui.com)
+* [GraphQL](https://graphql.org)
