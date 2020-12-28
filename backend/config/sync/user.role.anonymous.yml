@@ -1,19 +1,16 @@
-uuid: f64f4ecb-f60e-4e19-a8d6-51d71ed5cab3
+uuid: 3b12a7bc-f8f4-43e6-8f67-71020bdcd44d
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
 id: anonymous
 label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'access site-wide contact form'
-  - 'bypass graphql field security'
+  - 'access openapi api docs'
+  - 'access toolbar'
   - 'execute graphql requests'
-  - 'execute persisted graphql requests'
-  - 'search content'
-  - 'use text format restricted_html'
+  - 'issue subrequests'
+  - 'view media'
+  - 'use jsonrpc services'
