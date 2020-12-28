@@ -5,6 +5,6 @@ services:
       file: ${HOME}/.docksal/stacks/services.yml
       service: cli
     labels:
-      - io.docksal.virtual-host=nodeapp.${VIRTUAL_HOST}
+      - io.docksal.virtual-host=frontend.${VIRTUAL_HOST}
       - io.docksal.virtual-port=80
     command: [ "bash", "-lc", "npm start -p 80" ]
