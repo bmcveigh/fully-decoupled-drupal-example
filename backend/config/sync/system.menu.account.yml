@@ -1,9 +1,7 @@
-uuid: 4ddab163-113e-46e2-abdc-c01b10779275
+uuid: 6f0ae6f2-f8f1-4cef-8836-59821cd8d0a7
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: M_Bh81osDyUQ4wV0GgU_NdBNqkzM87sLxjaCdFj9mnw
 id: account
 label: 'User account menu'
 description: 'Links related to the active user account'

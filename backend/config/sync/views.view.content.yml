@@ -1,12 +1,10 @@
-uuid: d5c9d51d-9146-4cf8-9e4b-568a6673e964
+uuid: a929a889-402b-4957-be77-4114906cc4aa
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - user
-_core:
-  default_config_hash: P7F4DFe8BL31DRVqsvS-ix9KZZqvvaPjZ7zEvGo9yNM
 id: content
 label: Content
 module: node
