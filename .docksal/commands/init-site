@@ -55,7 +55,7 @@ copy_settings_file()
 
 composer_install ()
 {
-	cd "$PROJECT_ROOT"
+	cd "$PROJECT_ROOT/backend"
 	echo-green "Installing dependencies..."
 	composer install
 }
