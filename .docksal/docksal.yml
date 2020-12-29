@@ -7,6 +7,10 @@ services:
       io.docksal.virtual-port: 80
     expose:
       - 80
-    build: services/frontend
+    build: ${PROJECT_ROOT}/frontend
     volumes:
       - ${PROJECT_ROOT}/frontend:/usr/app:rw
+  web:
+    labels:
+      io.docksal.project-root: ${PROJECT_ROOT}
+      io.docksal.virtual-host: ${VIRTUAL_HOST}
