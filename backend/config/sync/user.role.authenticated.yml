@@ -11,5 +11,5 @@ permissions:
   - 'access openapi api docs'
   - 'access toolbar'
   - 'issue subrequests'
-  - 'view media'
   - 'use jsonrpc services'
+  - 'view media'
