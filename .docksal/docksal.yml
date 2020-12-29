@@ -1,15 +1,15 @@
 version: "2.1"
 services:
-  frontend:
-    image: "node:alpine"
-    labels:
-      io.docksal.virtual-host: frontend.${VIRTUAL_HOST}
-      io.docksal.virtual-port: 80
-    expose:
-      - 80
-    build: ${PROJECT_ROOT}/frontend
-    volumes:
-      - ${PROJECT_ROOT}/frontend:/usr/app:rw
+#  frontend:
+#    image: "node:alpine"
+#    labels:
+#      io.docksal.virtual-host: frontend.${VIRTUAL_HOST}
+#      io.docksal.virtual-port: 80
+#    expose:
+#      - 80
+#    build: ${PROJECT_ROOT}/frontend
+#    volumes:
+#      - ${PROJECT_ROOT}/frontend:/usr/app:rw
   web:
     labels:
       io.docksal.project-root: ${PROJECT_ROOT}
