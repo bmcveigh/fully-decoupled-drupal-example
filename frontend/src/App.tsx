@@ -16,7 +16,8 @@ import { ApolloProvider } from 'react-apollo';
 
 import client from './utils/apolloClient';
 import { BrowserRouter as Router } from 'react-router-dom';
-import RouterLink from './components/Routes/RouterLink'
+import RouterLink from './components/Routes/RouterLink';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,6 +51,7 @@ const darkTheme = createMuiTheme({
 const App = () => {
   const classes = useStyles();
   const [isDark, toggleDark] = useState(true);
+  const queryClient = new QueryClient();
 
   const changeTheme = () => {
     toggleDark(prev => !prev);
@@ -58,33 +60,35 @@ const App = () => {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <Router>
-        <ApolloProvider client={client}>
-          <CssBaseline />
-          <AppBar
-            position="fixed"
-          >
-            <Toolbar>
-              <Typography variant="h6" noWrap>
-                <RouterLink to="/">
-                  My Decoupled Drupal Site
-                </RouterLink>
-              </Typography>
-              <IconButton aria-label="dark" onClick={changeTheme}>
-                {isDark ? (
-                  <Brightness3 />
-                ) : (
-                  <WbSunny className={classes.button} />
-                )}
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          <Container>
+        <QueryClientProvider client={queryClient}>
+          <ApolloProvider client={client}>
+            <CssBaseline />
+            <AppBar
+              position="fixed"
+            >
+              <Toolbar>
+                <Typography variant="h6" noWrap>
+                  <RouterLink to="/">
+                    My Decoupled Drupal Site
+                  </RouterLink>
+                </Typography>
+                <IconButton aria-label="dark" onClick={changeTheme}>
+                  {isDark ? (
+                    <Brightness3 />
+                  ) : (
+                    <WbSunny className={classes.button} />
+                  )}
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+            <Container>
 
-            <main className={classes.content}>
-              <Routes />
-            </main>
-          </Container>
-        </ApolloProvider>
+              <main className={classes.content}>
+                <Routes />
+              </main>
+            </Container>
+          </ApolloProvider>
+        </QueryClientProvider>
       </Router>
     </ThemeProvider>
   );

@@ -1,33 +1,41 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
 import { Backdrop, CircularProgress } from '@material-ui/core'
+import axios from 'axios'
+import { useQuery } from 'react-query'
 
 interface IQuery extends Readonly<any> {
   children: any;
-  query: any;
+  endpoint: string;
   id?: any;
   variables?: any;
 }
 
-const Query: ({ children, query, id, variables }: IQuery) => (any) = ({ children, query, id, variables }) => {
-  if (!variables) {
-    variables = {};
-  }
-  if (id) {
-    variables.id = id;
+
+
+const Query: ({ children, id, endpoint }: IQuery) => (any) = ({ children, id, endpoint }) => {
+  let loading = true
+  let error = false
+
+  const data = useQuery(endpoint, async () => {
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/${endpoint}`)
+    return data
+  })
+
+  if (data) {
+    loading = false
   }
 
-  const { data, loading, error } = useQuery(query, {
-    variables: variables
-  });
-
-  if (loading) return (
-    <Backdrop open={true}>
-      <CircularProgress color="inherit" />
-    </Backdrop>
-  );
-  if (error) return <p>Error: {JSON.stringify(error)}</p>;
-  return children({ data });
+  if (loading) {
+    return (
+      <Backdrop open={true}>
+        <CircularProgress color="inherit"/>
+      </Backdrop>
+    )
+  }
+  if (error) {
+    return error
+  }
+  return children({ data })
 };
 
 export default Query;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Query from '../../components/Query/Query';
-import ARTICLES_QUERY from '../../graphql/queries/articles';
 import NodeArticleType from '../../types/NodeArticleType';
 import NodeArticlesQueryResponse from '../../types/NodeArticlesQueryResponse';
 import {
@@ -31,19 +30,23 @@ const NodeArticleList = () => {
   const classes = useStyles();
 
   return (
-    <Query query={ARTICLES_QUERY}>
-      {(results: NodeArticlesQueryResponse): ReactElement => {
+    <Query endpoint="node/article">
+      {(results: NodeArticlesQueryResponse): ReactElement|null => {
+        if (!results.data) {
+          return null;
+        }
+        const response = results.data;
         return (
           <List className={classes.root}>
-            {results.data.nodeQuery.entities.map((node: NodeArticleType) => (
-              <React.Fragment key={node.entityId}>
+            {response.data ? response.data.data.map((node: NodeArticleType) => (
+              <React.Fragment key={node.attributes.drupal_internal__nid}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
-                    primary={<RouterLink to={`/node/${node.entityId}`}><Typography variant="h4">{node.entityLabel}</Typography></RouterLink>}
+                    primary={<RouterLink to={`/node/${node.attributes.drupal_internal__nid}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>}
                     secondary={
-                      node.body.summary ? (
+                      node.attributes.body.summary ? (
                         <React.Fragment>
-                          {node.body.summary}
+                          {node.attributes.body.summary}
                         </React.Fragment>
                       ) : null
                     }
@@ -52,7 +55,7 @@ const NodeArticleList = () => {
                 </ListItem>
                 <Divider variant="inset" component="li" />
               </React.Fragment>
-            ))}
+            )) : null}
           </List>
         )
       }}

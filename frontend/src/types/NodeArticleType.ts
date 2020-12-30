@@ -1,10 +1,12 @@
 interface NodeArticleType {
-  entityId: string | number;
-  entityLabel: string;
-  body: {
-    summary?: string;
-    value?: string;
-  };
+  attributes: {
+    drupal_internal__nid: number;
+    body: {
+      summary?: string;
+      value?: string;
+    };
+    title: string;
+  }
 }
 
 export default NodeArticleType;
