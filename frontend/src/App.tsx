@@ -50,10 +50,12 @@ const darkTheme = createMuiTheme({
 
 const App = () => {
   const classes = useStyles();
-  const [isDark, toggleDark] = useState(true);
+  const userTheme = localStorage.getItem('user_preferred_theme');
+  const [isDark, toggleDark] = useState(userTheme && userTheme === 'dark');
   const queryClient = new QueryClient();
 
   const changeTheme = () => {
+    localStorage.setItem('user_preferred_theme', userTheme === 'dark' ? 'light': 'dark');
     toggleDark(prev => !prev);
   };
 
