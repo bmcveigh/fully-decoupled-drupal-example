@@ -42,7 +42,7 @@ const NodeArticleList = () => {
               <React.Fragment key={node.attributes.drupal_internal__nid}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
-                    primary={<RouterLink to={`/node/${node.attributes.drupal_internal__nid}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>}
+                    primary={<RouterLink to={`/node/${node.id}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>}
                     secondary={
                       node.attributes.body.summary ? (
                         <React.Fragment>

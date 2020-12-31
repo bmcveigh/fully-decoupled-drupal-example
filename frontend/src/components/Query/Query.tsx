@@ -21,7 +21,7 @@ const Query: ({ children, id, endpoint }: IQuery) => (any) = ({ children, id, en
     return data
   })
 
-  if (data) {
+  if (data.data) {
     loading = false
   }
 
