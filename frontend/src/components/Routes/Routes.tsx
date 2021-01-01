@@ -4,8 +4,8 @@ import {
   Route,
 } from 'react-router-dom'
 import Home from '../../pages/Home';
-import { Typography } from '@material-ui/core'
 import NodeViewArticlePage from '../../pages/NodeViewArticlePage';
+import LoginPage from '../../pages/LoginPage';
 
 const Routes = () => {
   return (
@@ -15,7 +15,7 @@ const Routes = () => {
           <NodeViewArticlePage />
         </Route>
         <Route path="/user/login">
-          <Typography variant="h3">Login</Typography>
+          <LoginPage />
         </Route>
         <Route path="/">
           <Home/>
