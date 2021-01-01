@@ -4,14 +4,16 @@ import NodeArticleType from '../../types/NodeArticleType';
 import NodeArticlesQueryResponse from '../../types/NodeArticlesQueryResponse';
 import {
   createStyles,
-  Divider,
   List, ListItem,
   ListItemText,
   Theme, Typography,
-} from '@material-ui/core'
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { ReactElement } from 'react'
-import RouterLink from '../Routes/RouterLink'
+import { ReactElement } from 'react';
+
+import TimeAgo from 'react-timeago';
+
+import RouterLink from '../Routes/RouterLink';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,7 +44,16 @@ const NodeArticleList = () => {
               <React.Fragment key={node.attributes.drupal_internal__nid}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
-                    primary={<RouterLink to={`/node/${node.id}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>}
+                    primary={(
+                      <>
+                        <div>
+                          <RouterLink to={`/node/${node.id}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>
+                        </div>
+                        <div>
+                          Created <TimeAgo date={node.attributes.created} />
+                        </div>
+                      </>
+                    )}
                     secondary={
                       node.attributes.body.summary ? (
                         <React.Fragment>
@@ -53,7 +64,6 @@ const NodeArticleList = () => {
                   >
                   </ListItemText>
                 </ListItem>
-                <Divider variant="inset" component="li" />
               </React.Fragment>
             )) : null}
           </List>
