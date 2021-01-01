@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import {
-  AppBar,
+  AppBar, Button,
   Container,
   createMuiTheme,
   createStyles,
   CssBaseline, IconButton,
   makeStyles,
   Theme, ThemeProvider, Toolbar, Typography,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 import { Brightness3, WbSunny } from '@material-ui/icons';
 
@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme: Theme) =>
     siteAvatar: {
       marginRight: theme.spacing(3),
     },
+    appBar: {
+      flexGrow: 1,
+    },
+    appBarTitle: {
+      flexGrow: 1,
+    }
   }),
 );
 
@@ -67,16 +73,18 @@ const App = () => {
           <CssBaseline/>
           <AppBar
             position="fixed"
+            className={classes.appBar}
           >
             <Toolbar>
               <span className={classes.siteAvatar}>
                 <SiteAvatar />
               </span>
-              <Typography variant="h6" noWrap>
+              <Typography variant="h6" className={classes.appBarTitle}>
                 <RouterLink to="/">
                   My Fully Decoupled Drupal Site
                 </RouterLink>
               </Typography>
+              <RouterLink to="/user/login"><Button color="inherit">Login</Button></RouterLink>
               <IconButton aria-label="dark" onClick={changeTheme}>
                 {isDark ? (
                   <Brightness3/>
