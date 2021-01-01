@@ -12,12 +12,10 @@ import {
 import { Brightness3, WbSunny } from '@material-ui/icons';
 
 import Routes from './components/Routes/Routes'
-import { ApolloProvider } from 'react-apollo';
-
-import client from './utils/apolloClient';
 import { BrowserRouter as Router } from 'react-router-dom';
 import RouterLink from './components/Routes/RouterLink';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import SiteAvatar from './components/Avatar/SiteAvatar'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,6 +30,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       color: 'orange',
+    },
+    siteAvatar: {
+      marginRight: theme.spacing(3),
     },
   }),
 );
@@ -63,37 +64,37 @@ const App = () => {
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <Router>
         <QueryClientProvider client={queryClient}>
-          <ApolloProvider client={client}>
-            <CssBaseline />
-            <AppBar
-              position="fixed"
-            >
-              <Toolbar>
-                <Typography variant="h6" noWrap>
-                  <RouterLink to="/">
-                    My Decoupled Drupal Site
-                  </RouterLink>
-                </Typography>
-                <IconButton aria-label="dark" onClick={changeTheme}>
-                  {isDark ? (
-                    <Brightness3 />
-                  ) : (
-                    <WbSunny className={classes.button} />
-                  )}
-                </IconButton>
-              </Toolbar>
-            </AppBar>
-            <Container>
-
-              <main className={classes.content}>
-                <Routes />
-              </main>
-            </Container>
-          </ApolloProvider>
+          <CssBaseline/>
+          <AppBar
+            position="fixed"
+          >
+            <Toolbar>
+              <span className={classes.siteAvatar}>
+                <SiteAvatar />
+              </span>
+              <Typography variant="h6" noWrap>
+                <RouterLink to="/">
+                  My Fully Decoupled Drupal Site
+                </RouterLink>
+              </Typography>
+              <IconButton aria-label="dark" onClick={changeTheme}>
+                {isDark ? (
+                  <Brightness3/>
+                ) : (
+                  <WbSunny className={classes.button}/>
+                )}
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+          <Container>
+            <main className={classes.content}>
+              <Routes/>
+            </main>
+          </Container>
         </QueryClientProvider>
       </Router>
     </ThemeProvider>
-  );
+  )
 };
 
 export default App;
