@@ -17,8 +17,9 @@ const Query: ({ children, id, endpoint }: IQuery) => (any) = ({ children, id, en
   let error = false
 
   const data = useQuery(endpoint, async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/${endpoint}`)
-    return data
+    const href = endpoint.indexOf('http') === 0 ? endpoint : `${process.env.REACT_APP_BACKEND_URL}/api/${endpoint}`;
+    const { data } = await axios.get(href);
+    return data;
   })
 
   if (data.data) {

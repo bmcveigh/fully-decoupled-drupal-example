@@ -8,7 +8,16 @@ interface NodeArticleType {
       value?: string;
     };
     title: string;
-  }
+  },
+  relationships: {
+    uid: {
+      links: {
+        related: {
+          href: string;
+        }
+      };
+    };
+  };
 }
 
 export default NodeArticleType;

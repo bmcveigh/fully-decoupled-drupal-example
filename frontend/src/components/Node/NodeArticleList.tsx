@@ -14,6 +14,7 @@ import { ReactElement } from 'react';
 import TimeAgo from 'react-timeago';
 
 import RouterLink from '../Routes/RouterLink';
+import NodeUser from './NodeUser'
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -50,7 +51,7 @@ const NodeArticleList = () => {
                           <RouterLink to={`/node/${node.id}`}><Typography variant="h4">{node.attributes.title}</Typography></RouterLink>
                         </div>
                         <div>
-                          Created <TimeAgo date={node.attributes.created} />
+                          Created <TimeAgo date={node.attributes.created} /> by <NodeUser href={node.relationships.uid.links.related.href} display="username" />
                         </div>
                       </>
                     )}
