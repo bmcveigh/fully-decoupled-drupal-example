@@ -6,22 +6,25 @@ import { useQuery } from 'react-query'
 interface IQuery extends Readonly<any> {
   children: any;
   endpoint: string;
-  id?: any;
   query?: any;
 }
 
 
 
-  const Query: ({ children, id, endpoint, query }: IQuery) => (any) = ({ children, id, endpoint, query }) => {
+const Query: ({ children, endpoint, query }: IQuery) => (any) = ({
+  children,
+  endpoint,
+  query,
+}) => {
   let loading = true
   let error = false
 
   const data = useQuery(endpoint, async () => {
-    let queryString = '';
+    let queryString = ''
 
     if (query) {
-      const params = new URLSearchParams(query);
-      queryString = `?${params.toString()}`;
+      const params = new URLSearchParams(query)
+      queryString = `?${params.toString()}`
     }
 
     const href = endpoint.indexOf('http') === 0 ? endpoint : `${process.env.REACT_APP_BACKEND_URL}/api/${endpoint}${queryString}`;
