@@ -32,8 +32,13 @@ const useStyles = makeStyles((theme: Theme) =>
 const NodeArticleList = () => {
   const classes = useStyles();
 
+  // Sort by newest articles.
+  const query = {
+    sort: '-created',
+  };
+
   return (
-    <Query endpoint="node/article">
+    <Query endpoint="node/article" query={query}>
       {(results: NodeArticlesQueryResponse): ReactElement|null => {
         if (!results.data) {
           return null;
