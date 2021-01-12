@@ -1,4 +1,4 @@
-# Fully Decoupled Drupal Example
+# Fully Decoupled Drupal Example with ContentaCMS
 A fully decoupled [Drupal 8](https://www.drupal.org) site running on [Docksal](https://docksal.io) for the backend running with [React](https://reactjs.org), [Material UI](https://material-ui.com), and [GraphQL](https://graphql.org) for the frontend.
 
 ## Installation
